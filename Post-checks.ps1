@@ -1,9 +1,13 @@
-﻿$VMname = "PackerTestVM"
+﻿Param (
+
+    $AwsAccessKeyId,
+    $AwsSecretKey
+)
+
+$VMname = "PackerTestVM"
 $ResouceGroup = "PackerGroup"
-$AwsAccessKeyId ="AKIAJJYBN2DYQZXIMJWA"
-$AwsSecretKey = "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"
 $AWSRegion = "ap-southeast-1"
-Import-Module AWSPowerShell
+#Import-Module AWSPowerShell
 
 
 # Set up the AWS environment
@@ -13,7 +17,7 @@ Set-DefaultAWSRegion -Region $AWSRegion
 
 $InstanceDetails = (Get-EC2Instance -Filter @(@{name='tag:Name'; values="$VMName"})).Instances
 
-$PublicIP = $($InstanceDetails.PublicIpAddress)
+[string]$PublicIP = $($InstanceDetails.PublicIpAddress)
 $InstanceID = $($InstanceDetails.InstanceID)
 
 $Status = $false
@@ -33,7 +37,7 @@ Do {
 Write-Host "AWS Instance up with public $publicIP ; performing checks"
 
 $WebReq = ""
-$WebReq = Invoke-WebRequest -Uri "$PublicIP/default.html"
+$WebReq = Invoke-WebRequest -Uri $PublicIP/default.html
 If ($($WebReq.Content) -like "*Rahamath*") {
     Write-Host "Server build completed sucessfully"
     Write-Host "Removing VM"

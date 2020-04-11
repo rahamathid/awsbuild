@@ -1,7 +1,11 @@
-﻿$VMname = "PackerTestVM"
+﻿Param (
+
+    $AwsAccessKeyId,
+    $AwsSecretKey
+)
+
+$VMname = "PackerTestVM"
 $ResouceGroup = "PackerGroup"
-$AwsAccessKeyId ="AKIAJJYBN2DYQZXIMJWA"
-$AwsSecretKey = "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"
 $AWSRegion = "ap-southeast-1"
 $EC2ImageName  = "mywindowsimage-Windows-2016"
 $InstanceType = "t2.small"
