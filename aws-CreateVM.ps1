@@ -44,8 +44,8 @@ $NewVM = New-EC2Instance `
     -InstanceType $InstanceType `
     -ErrorAction Stop `
     -KeyName awsrdp `
-    -SecurityGroupId sg-060ecaae49b1a3f09 `
-    -SubnetId subnet-090e148cf11b412e3
+    -SecurityGroupId sg-06b87a797c7c95650 `
+    -SubnetId subnet-e63588bf
     
  $InstanceID = $NewVM.Instances.InstanceID
 
