@@ -8,7 +8,7 @@ $VMname = "PackerTestVM"
 $ResouceGroup = "PackerGroup"
 $AWSRegion = "ap-southeast-1"
 $EC2ImageName  = "mywindowsimage-Windows-2016"
-$InstanceType = "t2.small"
+$InstanceType = "t2.micro"
 #Import-Module AWSPowerShell
 
 write-Host $AwsAccessKeyId
