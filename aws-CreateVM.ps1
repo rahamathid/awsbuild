@@ -11,6 +11,8 @@ $EC2ImageName  = "mywindowsimage-Windows-2016"
 $InstanceType = "t2.small"
 #Import-Module AWSPowerShell
 
+write-Host $AwsAccessKeyId
+Write-Host $AwsSecretKey
 
 # Set up the AWS environment
 Write-Host "Authenticating against AWS..."
